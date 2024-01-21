@@ -11,7 +11,7 @@ plugins {
     kotlin("plugin.jpa") version "1.6.10"
     kotlin("kapt") version "1.6.10"
 
-    id("org.openapi.generator") version "6.0.0"
+    id("org.openapi.generator") version "6.6.0"
 }
 
 group = "com.example"
@@ -25,7 +25,11 @@ repositories {
     mavenCentral()
 }
 
+// springboot 2.6.x 에서 kotest 를 사용하기 위한 설정
+extra["kotlin-coroutines.version"] = "1.6.0"
+
 dependencies {
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -60,6 +64,14 @@ dependencies {
 //    implementation("org.openapitools:openapi-generator-gradle-plugin:5.1.1") {
 //        exclude(group = "org.slf4j", module = "slf4j-simple")
 //    }
+
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:4.4.3") // kotlin junit 처럼 쓸 수 있는 Spec 들이 정의 됨
+
+    testImplementation("io.kotest:kotest-assertions-core:4.4.3") // shouldBe... etc 와같이 Assertions 의 기능을 제공
+    testImplementation("io.kotest:kotest-framework-datatest:4.5.0") // data driven test 를 위한 lib
+    testImplementation("io.kotest:kotest-extensions-spring:4.4.3") // spring boot test 를 위해서 추가
+    testImplementation("com.ninja-squad:springmockk:3.1.1") // junit 의 @MockBean @SpyBean 과 같은 기능을 제공 해주는 lib
+    testImplementation("io.mockk:mockk:1.12.8") // unit test 에서 mockking 사용
 }
 
 // kotlin 컴파일러
@@ -93,7 +105,8 @@ tasks.register<GenerateTask>("generateFromYaml"){
         mapOf(
             "dateLibrary" to "java8",
             "hideGenerationTimestamp" to "true",
-            "delegatePattern" to "true"
+            "delegatePattern" to "true",
+            "useTags" to "true"
         )
     )
 
