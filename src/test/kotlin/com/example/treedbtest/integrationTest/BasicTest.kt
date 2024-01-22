@@ -1,12 +1,10 @@
 package com.example.treedbtest.integrationTest
 
-import com.example.treedbtest.domain.IndexType
 import com.example.treedbtest.model.IndexDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import io.kotest.core.datatest.forAll
 import io.kotest.core.spec.style.DescribeSpec
-import io.kotest.data.blocking.forAll
+import io.kotest.data.forAll
 import io.kotest.data.row
 import io.kotest.matchers.shouldBe
 import org.springframework.beans.factory.annotation.Autowired
@@ -82,7 +80,7 @@ class BasicTest(
             jsonData ->
             mockMvc.post("/index/create") {
                 contentType = MediaType.APPLICATION_JSON
-                content = jsonData.values()[0]
+                content = jsonData
             }
                 .andExpect {
                     status { isOk() }
