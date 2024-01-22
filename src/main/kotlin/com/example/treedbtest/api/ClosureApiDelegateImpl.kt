@@ -19,8 +19,8 @@ class ClosureApiDelegateImpl(
                 ClosureDto(
                     currentIndex = it.id.currentIndex,
                     rootIndex = it.id.rootIndex,
-                    ancestorIndex = it.id.ancestor,
-                    descendantIndex = it.id.descendant,
+                    ancestorIndex = it.id.ancestorIndex,
+                    descendantIndex = it.id.descendantIndex,
                     depth = it.id.depth
                 )
             }
@@ -32,8 +32,8 @@ class ClosureApiDelegateImpl(
         val closureId = ClosureId(
             currentIndex = closureDto.currentIndex,
             rootIndex = closureDto.rootIndex,
-            ancestor = closureDto.ancestorIndex,
-            descendant = closureDto.descendantIndex,
+            ancestorIndex = closureDto.ancestorIndex,
+            descendantIndex = closureDto.descendantIndex,
             depth = closureDto.depth
         )
 

@@ -28,11 +28,11 @@ data class ClosureId (
     @Column(name = "root_index")
     var rootIndex: String,
 
-    @Column(name = "ancestor")
-    var ancestor: String,
+    @Column(name = "ancestor_index")
+    var ancestorIndex: String,
 
-    @Column(name = "descendant", nullable = true)
-    var descendant: String?,
+    @Column(name = "descendant_index", nullable = true)
+    var descendantIndex: String?,
 
     @Column(name = "depth")
     var depth: Int

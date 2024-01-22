@@ -161,6 +161,7 @@ components:
             - FLOW_INDEX
             - QUESTION_INDEX
             - ANSWER_INDEX
+            - AI_INDEX
           example: 'ANALYSIS_INDEX'
         description:
           type: string

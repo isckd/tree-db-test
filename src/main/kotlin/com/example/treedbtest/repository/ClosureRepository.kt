@@ -8,7 +8,7 @@ interface ClosureRepository : JpaRepository<Closure, ClosureId> {
 
 
     fun findAllByIdRootIndex(rootIndex: String): MutableList<Closure>
-    fun findAllByIdAncestor(ancestor: String): MutableList<Closure>
-    fun findAllByIdDescendant(descendant: String?): MutableList<Closure>
+    fun findAllByIdAncestorIndex(ancestorIndex: String): MutableList<Closure>
+    fun findAllByIdDescendantIndex(descendantIndex: String?): MutableList<Closure>
 
 }

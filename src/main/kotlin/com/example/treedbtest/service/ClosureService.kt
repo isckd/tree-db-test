@@ -35,10 +35,10 @@ class ClosureService(
     }
 
     fun getClosuresByAncestor(ancestor: String): MutableList<Closure> {
-        return closureRepository.findAllByIdAncestor(ancestor)
+        return closureRepository.findAllByIdAncestorIndex(ancestor)
     }
 
     fun getClosuresByDescendant(descendant: String?): MutableList<Closure> {
-        return closureRepository.findAllByIdDescendant(descendant)
+        return closureRepository.findAllByIdDescendantIndex(descendant)
     }
 }
